@@ -1,5 +1,8 @@
 package agh.po.lab3;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class CodingBat {
     public static void main(String[] args) {
         CodingBat sprawdzenie = new CodingBat();
@@ -38,11 +41,31 @@ public class CodingBat {
         }
 
     }
+    public Map<String, String> mapAB3(Map<String, String> map) {
 
+        if (map.containsKey("a") && !map.containsKey("b")) {
+            String wartosc = map.get("a");
+            map.put("b", wartosc);
+        }
+        else if (map.containsKey("b") && !map.containsKey("a")) {
+            String wartosc = map.get("b");
+            map.put("a", wartosc);
+        }
+        return map;
+    }
+    public Map<String, Boolean> wordMultiple(String[] strings) {
+        Map<String, Boolean> map = new HashMap<String, Boolean>();
 
+        for (String i : strings) {
+            if (map.containsKey(i)) {
+                map.put(i, true);
+            } else {
+                map.put(i, false);
+            }
+        }
 
-
-
+        return map;
+    }
 
 
 
