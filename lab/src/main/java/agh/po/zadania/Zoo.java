@@ -7,25 +7,38 @@ import agh.po.animals.Snake;
 import java.util.Random;
 
 public class Zoo {
+
     public static void main(String[] args) {
         Animal[] animals = new Animal[100];
         Random random = new Random();
-        for(int i = 0; i < animals.length; i++){
+
+        for (int i = 0; i < animals.length; i++) {
             int wybor = random.nextInt(3);
-            if (wybor ==0) {
+
+            if (wybor == 0) {
                 animals[i] = new Dog("Pies");
-            } else if ( wybor == 1) {
+            } else if (wybor == 1) {
                 animals[i] = new Parrot("Papuga");
             } else {
                 animals[i] = new Snake("Waz");
             }
-
         }
+
         for (int i = 0; i < animals.length; i++) {
             System.out.println(animals[i].getDescription());
+            animals[i].makeSound();
         }
+
+        System.out.println("Suma nóg: " + policzNogi(animals));
     }
 
+    public static int policzNogi(Animal[] animals) {
+        int suma = 0;
 
+        for (int i = 0; i < animals.length; i++) {
+            suma = suma + animals[i].getLegs();
+        }
 
+        return suma;
+    }
 }
